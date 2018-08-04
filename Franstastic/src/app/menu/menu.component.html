@@ -1,0 +1,6 @@
+<div *ngIf="loginService.user | async as user" class="sidenav">
+  <p>Ingelogt als: {{user.displayName}}</p>
+  <img [src]="user.photoURL">
+  <a [routerLink]="['/competitions']">Home</a>
+  <a (click)="loginService.logout()">Uitloggen</a>
+</div>

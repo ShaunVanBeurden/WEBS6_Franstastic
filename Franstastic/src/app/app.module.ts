@@ -11,13 +11,15 @@ import { LoginComponent } from './login/login.component';
 import { CompetitionOverviewComponent } from './competition/competition-overview/competition-overview.component';
 import { LoginService } from "./providers/login.service";
 import { environment } from "../environments/environment";
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CompetitionOverviewComponent
+    CompetitionOverviewComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

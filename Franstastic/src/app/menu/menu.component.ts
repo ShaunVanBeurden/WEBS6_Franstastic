@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class MenuComponent implements OnInit {
 
-  constructor(public loginService: LoginService, private router: Router) { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
   }

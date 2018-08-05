@@ -5,4 +5,23 @@
     <h1>Welkom bij Franstastic Competities!</h1>
     <img width="300" alt="Angular Logo" src="https://www.bekendeartiestboeken.nl/static/artiesten/3157-frans-bauer-boeken-800-600.jpg">
   </div>
+
+  <h2>Competities </h2>
+  Naam: <input [(ngModel)]="competitionName"/>
+  Type:
+  <select [ngModel]="selectedCompetitionType" (ngModelChange)="onChangeType($event)">
+    <option *ngFor="let compType of competitionTypes">{{compType}}</option>
+  </select>
+  <button (click)="addCompetition()">Competitie toevoegen</button>
+
+  <table>
+    <tr>
+      <th>Competitienaam</th>
+      <th>Type</th>
+    </tr>
+    <tr *ngFor="let competition of competitions" [routerLink]="['/competition', competition.name]" routerLinkActive="active">
+      <td class="listblock">{{ competition.name }}</td>
+      <td>{{ competition.type }}</td>
+    </tr>
+  </table>
 </div>

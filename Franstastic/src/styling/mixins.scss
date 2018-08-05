@@ -1,0 +1,34 @@
+// Styling voor een custom knop
+@mixin competition-menu-button {
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+
+  background-color: #fcc283;
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+}
+
+// Styling voor tables
+@mixin table-style {
+  table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-top:20px;
+  }
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+}
+
+@mixin rounds {
+  float: left;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+

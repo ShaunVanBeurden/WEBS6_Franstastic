@@ -1,0 +1,13 @@
+@import "../../../styling/mixins";
+
+.listblock {
+  color: blue;
+  text-decoration: underline;
+}
+
+.listblock:hover {
+  color: red;
+}
+
+@include table-style;
+

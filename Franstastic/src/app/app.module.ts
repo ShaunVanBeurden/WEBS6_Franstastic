@@ -12,6 +12,8 @@ import { CompetitionOverviewComponent } from './competition/competition-overview
 import { LoginService } from "./providers/login.service";
 import { environment } from "../environments/environment";
 import { MenuComponent } from './menu/menu.component';
+import { FormsModule } from "@angular/forms";
+import {CompetitionService} from "./providers/competition.service";
 
 
 @NgModule({
@@ -24,13 +26,15 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     //Initialize Firebase module
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
   providers: [
-    LoginService
+    LoginService,
+    CompetitionService
   ],
   bootstrap: [AppComponent]
 })

@@ -14,8 +14,8 @@ export class CompetitionOverviewComponent  {
   public selectedCompetitionType: string;
 
   constructor(private competitionService: CompetitionService) {
+    // het subscriben op de angularfirelist van competities
     competitionService.getCompetitionsList().valueChanges().subscribe(competitions => {
-      console.log(competitions);
       this.competitions = competitions;
     });
 
@@ -23,6 +23,7 @@ export class CompetitionOverviewComponent  {
   }
 
   onChangeType(selectedCompType) {
+    // Ophalen van het geselecteerde type competitie
     this.selectedCompetitionType = selectedCompType;
   }
 

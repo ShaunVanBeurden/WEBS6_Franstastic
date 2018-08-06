@@ -1,0 +1,5 @@
+@import "../../../styling/mixins";
+
+button {
+  @include competition-menu-button;
+}

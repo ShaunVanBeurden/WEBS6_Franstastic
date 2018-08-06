@@ -14,6 +14,8 @@ import { environment } from "../environments/environment";
 import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from "@angular/forms";
 import {CompetitionService} from "./providers/competition.service";
+import { CompetitionDetailsComponent } from './competition/competition-details/competition-details.component';
+import { CompetitionParticipantsComponent } from './competition/competition-participants/competition-participants.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {CompetitionService} from "./providers/competition.service";
     AppComponent,
     LoginComponent,
     CompetitionOverviewComponent,
-    MenuComponent
+    MenuComponent,
+    CompetitionDetailsComponent,
+    CompetitionParticipantsComponent
   ],
   imports: [
     BrowserModule,

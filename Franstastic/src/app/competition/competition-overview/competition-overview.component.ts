@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CompetitionService } from "../../providers/competition.service";
+import { Competition } from "../competition";
+import { map } from "rxjs/operators";
+
 
 @Component({
   selector: 'app-competition-overview',
@@ -8,18 +11,20 @@ import { CompetitionService } from "../../providers/competition.service";
 })
 export class CompetitionOverviewComponent  {
 
-  public competitions: any[];
+  public competitions: any = [];
   public competitionName: string;
   public competitionTypes: string[] = ["Toernooi", "Knockout-Systeem", "Poule-Systeem"];
   public selectedCompetitionType: string;
 
   constructor(private competitionService: CompetitionService) {
-    // het subscriben op de angularfirelist van competities
-    competitionService.getCompetitionsList().valueChanges().subscribe(competitions => {
-      this.competitions = competitions;
+    competitionService.getCompetitionsList().snapshotChanges().pipe(
+      map(actions =>
+        actions.map(a => ({ key: a.key, ...a.payload.val() }))
+      )
+    ).subscribe(competitions => {
+        competitions.map(competitions => this.competitions.push(competitions)
+      );
     });
-
-    competitionService.getCompetitionsList().snapshotChanges()
   }
 
   onChangeType(selectedCompType) {

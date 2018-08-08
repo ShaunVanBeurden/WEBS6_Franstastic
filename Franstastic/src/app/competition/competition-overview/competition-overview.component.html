@@ -19,7 +19,7 @@
       <th>Competitienaam</th>
       <th>Type</th>
     </tr>
-    <tr *ngFor="let competition of competitions" [routerLink]="['/competition', competition.name]" routerLinkActive="active">
+    <tr *ngFor="let competition of competitions" [routerLink]="['/competition', competition.key]" routerLinkActive="active">
       <td class="listblock">{{ competition.name }}</td>
       <td>{{ competition.type }}</td>
     </tr>

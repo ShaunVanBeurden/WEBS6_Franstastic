@@ -1,11 +1,13 @@
 <app-menu></app-menu>
 
 <div class="main">
-  <h2>{{ compName }}</h2>
+  <h2>{{ competitionName }}</h2>
   <button [routerLink]="['participants']">Deelnemers</button>
-  <button [routerLink]="['pouleoverview']">Poule weergave</button>
-  <button [routerLink]="['tournamentoverview']">Toernooi weergave</button>
-  <button [routerLink]="['knockoutoverview']">Knockout weergave</button>
+  <button *ngIf="competitionTypes.poule" [routerLink]="['pouleoverview']">Poule weergave</button>
+  <button *ngIf="competitionTypes.toernooi" [routerLink]="['tournamentoverview']">Toernooi weergave</button>
+  <button *ngIf="competitionTypes.ko" [routerLink]="['knockoutoverview']">Knockout weergave</button>
   <button [routerLink]="['matches']">Wedstrijden</button>
   <button >Wedstrijdschema</button><br/>
 </div>
+
+<router-outlet></router-outlet>

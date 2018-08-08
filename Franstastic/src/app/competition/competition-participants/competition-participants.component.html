@@ -1,3 +1,14 @@
-<p>
-  competition-participants works!
-</p>
+<app-menu></app-menu>
+
+<div class="main">
+  Naam: <input [(ngModel)]="participantName"/>
+  <!--<button (click)="addParticipant()">Deelnemer toevoegen</button>-->
+  <table>
+    <tr>
+      <th>Deelnemers</th>
+    </tr>
+    <tr *ngFor="let singer of singers">
+      <td>{{singer.name}}</td>
+    </tr>
+  </table>
+</div>

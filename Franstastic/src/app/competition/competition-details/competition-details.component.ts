@@ -24,6 +24,7 @@ export class CompetitionDetailsComponent {
         } else if (competition.type == "Poule-Systeem") {
           this.competitionTypes.poule = true;
         }
+        competitionService.key = params.id;
       });
     });
   }

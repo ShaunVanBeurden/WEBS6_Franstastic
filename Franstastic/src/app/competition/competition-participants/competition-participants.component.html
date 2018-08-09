@@ -2,13 +2,13 @@
 
 <div class="main">
   Naam: <input [(ngModel)]="participantName"/>
-  <!--<button (click)="addParticipant()">Deelnemer toevoegen</button>-->
+  <button (click)="addParticipant()">Deelnemer toevoegen</button>
   <table>
     <tr>
       <th>Deelnemers</th>
     </tr>
-    <tr *ngFor="let singer of singers">
-      <td>{{singer.name}}</td>
+    <tr *ngFor="let participant of participants">
+      <td>{{participant.name}}</td>
     </tr>
   </table>
 </div>

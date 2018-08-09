@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { CompetitionService } from "../../providers/competition.service";
-import { Competition } from "../competition";
 import { map } from "rxjs/operators";
 
 

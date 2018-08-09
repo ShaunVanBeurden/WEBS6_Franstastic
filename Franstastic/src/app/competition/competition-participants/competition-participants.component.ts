@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {CompetitionService} from "../../providers/competition.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -7,25 +7,22 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './competition-participants.component.html',
   styleUrls: ['./competition-participants.component.scss']
 })
-export class CompetitionParticipantsComponent implements OnInit {
+export class CompetitionParticipantsComponent {
 
-  public singers = [];
+  public participants = [];
   public participantName: string;
-  private competitionName: string;
   private competition;
 
-  constructor(private competitionService : CompetitionService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      this.competitionName = params.id;
-    });
-
-    competitionService.getCompetition("-LEjB0lNHvrD9_DKAWa5").valueChanges().subscribe(competition => {
-      this.singers = competition.participants;
+  constructor(private competitionService : CompetitionService) {
+    competitionService.getCompetition(competitionService.key).valueChanges().subscribe(competition => {
+      if (competition.participants) {
+        this.participants = competition.participants;
+      }
       this.competition = competition;
     });
   }
 
-  ngOnInit() {
+  addParticipant() {
+    this.competitionService.addParticipant(this.participantName, this.competition);
   }
-
 }

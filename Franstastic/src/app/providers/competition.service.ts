@@ -6,6 +6,7 @@ export class CompetitionService {
 
   private basePath: string = '/competition';
   private competition: AngularFireObject<any> = null;
+  public key: string;
 
   constructor(private db: AngularFireDatabase) { }
 
@@ -20,8 +21,19 @@ export class CompetitionService {
   }
 
   // Het toevoegen van een deelnemer aan de competitie
-  addParticipant(compParticipants) {
-    this.db.list('/competition').push({participants: compParticipants});
+  addParticipant(participantName, competition) {
+    const participantList = [];
+
+    participantList.push({name: participantName});
+    if (competition.participants) {
+      for (let i = 0; i < competition.participants.length; i++) {
+        participantList.push(competition.participants[i])
+      }
+    }
+
+    const itemsRef = this.db.list('/competition/');
+    // to get a key, check the Example app below
+    itemsRef.update(this.key, { participants: participantList });
   }
 
   // Het ophalen van een specifieke competitie

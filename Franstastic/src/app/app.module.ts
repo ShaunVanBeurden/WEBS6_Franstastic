@@ -16,6 +16,9 @@ import { FormsModule } from "@angular/forms";
 import {CompetitionService} from "./providers/competition.service";
 import { CompetitionDetailsComponent } from './competition/competition-details/competition-details.component';
 import { CompetitionParticipantsComponent } from './competition/competition-participants/competition-participants.component';
+import { DragulaModule } from 'ng2-dragula';
+import { CompetitionPouleComponent } from './competition/competition-poule/competition-poule.component';
+import { CompetitionTournamentComponent } from './competition/competition-tournament/competition-tournament.component';
 
 
 @NgModule({
@@ -25,12 +28,15 @@ import { CompetitionParticipantsComponent } from './competition/competition-part
     CompetitionOverviewComponent,
     MenuComponent,
     CompetitionDetailsComponent,
-    CompetitionParticipantsComponent
+    CompetitionParticipantsComponent,
+    CompetitionPouleComponent,
+    CompetitionTournamentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    DragulaModule.forRoot(),
     //Initialize Firebase module
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,

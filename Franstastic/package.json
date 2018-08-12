@@ -26,6 +26,7 @@
     "firebase": "^5.3.1",
     "ng2-dragula": "^2.0.2",
     "npm": "^6.3.0",
+    "roundrobin": "^1.0.3",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "zone.js": "^0.8.19"

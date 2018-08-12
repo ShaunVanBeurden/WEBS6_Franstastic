@@ -3,6 +3,11 @@
 <div class="main">
   Hoeveelheid poules: <input [(ngModel)]="pouleAmount"/>
   <button (click)="addPoules()">Poules aanmaken</button>
+
+  <div class="rounds" *ngFor="let poule of poules">
+    <h2>{{poule.name}}</h2>
+  </div>
+
   <div>
     <div class="wrapper">
       <div class="container" dragula="DRAGULA_FACTS">

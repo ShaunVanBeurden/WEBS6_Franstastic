@@ -1,0 +1,7 @@
+@import "../../../styling/mixins";
+
+@include table-style;
+
+.rounds {
+  @include rounds;
+}

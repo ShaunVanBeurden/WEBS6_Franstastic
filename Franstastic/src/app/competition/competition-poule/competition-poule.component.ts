@@ -35,11 +35,7 @@ export class CompetitionPouleComponent implements OnInit {
         //for ( let j = 0; j < this.participants.length / this.pouleAmount)
       }
 
-      for (let j = 0; j < this.participants.length; j++) {
-
-      }
-      console.log(this.participants.length / this.pouleAmount);
-      //console.log(this.poules);
+      console.log(this.poules);
     }
   }
 }

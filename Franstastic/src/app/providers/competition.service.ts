@@ -32,8 +32,12 @@ export class CompetitionService {
     }
 
     const itemsRef = this.db.list('/competition/');
-    // to get a key, check the Example app below
     itemsRef.update(this.key, { participants: participantList });
+  }
+
+  addRounds(roundList) {
+    const itemsRef = this.db.list('/competition/');
+    itemsRef.update(this.key, { rounds: roundList });
   }
 
   // Het ophalen van een specifieke competitie

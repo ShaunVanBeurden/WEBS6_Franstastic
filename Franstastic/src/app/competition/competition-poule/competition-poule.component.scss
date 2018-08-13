@@ -1,3 +1,11 @@
 @import "../../../styling/dragula.css";
+@import "../../../styling/mixins";
+
+@include table-style;
+
+.rounds {
+  @include rounds;
+}
+
 
 

@@ -4,8 +4,11 @@
   Hoeveelheid poules: <input [(ngModel)]="pouleAmount"/>
   <button (click)="addPoules()">Poules aanmaken</button>
 
-  <div class="rounds" *ngFor="let poule of poules">
+  <div class="poules" *ngFor="let poule of poules">
     <h2>{{poule.name}}</h2>
+    <div *ngFor="let player of poule.players">
+      <p>{{player.name}}</p>
+    </div>
   </div>
 
   <div>

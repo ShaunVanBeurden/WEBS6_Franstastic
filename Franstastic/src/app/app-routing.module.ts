@@ -6,6 +6,7 @@ import {CompetitionDetailsComponent} from "./competition/competition-details/com
 import {CompetitionParticipantsComponent} from "./competition/competition-participants/competition-participants.component";
 import {CompetitionPouleComponent} from "./competition/competition-poule/competition-poule.component";
 import {CompetitionTournamentComponent} from "./competition/competition-tournament/competition-tournament.component";
+import {CompetitionKnockoutComponent} from "./competition/competition-knockout/competition-knockout.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,8 +17,8 @@ const routes: Routes = [
       { path: 'participants', component: CompetitionParticipantsComponent },
       { path: 'pouleoverview', component: CompetitionPouleComponent },
       { path: 'tournamentoverview', component: CompetitionTournamentComponent },
-      /*{ path: 'knockoutoverview', component: CompetitionKnockoutComponent },
-      { path: 'matches', component: MatchDetailsComponent }*/
+      { path: 'knockoutoverview', component: CompetitionKnockoutComponent },
+      /*{ path: 'matches', component: MatchDetailsComponent }*/
     ]
   },
 ];

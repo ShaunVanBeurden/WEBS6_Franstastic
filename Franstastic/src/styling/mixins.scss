@@ -33,4 +33,15 @@
   display: inline-block;
 }
 
+@mixin poules {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1.5em;
+  display: inline-block;
+  border:1px solid black;
+}
+
 

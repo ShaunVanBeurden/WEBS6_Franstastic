@@ -19,6 +19,7 @@ import { CompetitionParticipantsComponent } from './competition/competition-part
 import { DragulaModule } from 'ng2-dragula';
 import { CompetitionPouleComponent } from './competition/competition-poule/competition-poule.component';
 import { CompetitionTournamentComponent } from './competition/competition-tournament/competition-tournament.component';
+import { CompetitionKnockoutComponent } from './competition/competition-knockout/competition-knockout.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CompetitionTournamentComponent } from './competition/competition-tourna
     CompetitionDetailsComponent,
     CompetitionParticipantsComponent,
     CompetitionPouleComponent,
-    CompetitionTournamentComponent
+    CompetitionTournamentComponent,
+    CompetitionKnockoutComponent
   ],
   imports: [
     BrowserModule,

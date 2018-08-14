@@ -40,6 +40,11 @@ export class CompetitionService {
     itemsRef.update(this.key, { rounds: roundList });
   }
 
+  addPouleComp(poules) {
+    const itemsRef = this.db.list('/competition/');
+    itemsRef.update(this.key, { poules: poules });
+  }
+
   // Het ophalen van een specifieke competitie
   getCompetition(key: string): AngularFireObject<any> {
     const competitionPath = `${this.basePath}/${key}`;

@@ -1,28 +1,32 @@
 <app-menu></app-menu>
 
 <div class="main">
+  <div>
   Hoeveelheid poules: <input [(ngModel)]="pouleAmount"/>
   <button (click)="addPoules()">Poules aanmaken</button>
-
+  </div>
   <div class="poules" *ngFor="let poule of poules">
-    <h2>{{poule.name}}</h2>
-    <div *ngFor="let player of poule.players">
-      <p>{{player.name}}</p>
+    <div class="wrapper">
+      <h2>{{poule.name}}</h2>
+      <div class="container" dragula="dragula_poulePlayers">
+        <div *ngFor="let player of poule.players">
+          <div>{{player.name}}</div>
+        </div>
+      </div>
     </div>
   </div>
-
   <div>
-    <div class="wrapper">
-      <div class="container" dragula="DRAGULA_FACTS">
-        <div>You can move these elements between these two containers</div>
-        <div>Moving them anywhere else isn't quite possible</div>
-        <div>There's also the possibility of moving elements around in the same container, changing their position</div>
-      </div>
-      <div class="container" dragula="DRAGULA_FACTS">
-        <div>This is the default use case. You only need to specify the containers you want to use</div>
-        <div>More interactive use cases lie ahead</div>
-        <div>Make sure to check out the <a href="https://github.com/bevacqua/dragula#readme">documentation on GitHub!</a></div>
-      </div>
-    </div>
+
+  <button *ngIf="showGenerate" (click)="generateTournament()">Genereer toernooi</button>
+  </div>
+  <div class="rounds" *ngFor="let poule of pouleCompetition">
+    <h2>{{poule.name}}</h2>
+    <table>
+      <tr *ngFor="let match of poule.matches">
+        <td>{{ match.player1.name}}</td>
+        <td>vs</td>
+        <td>{{ match.player2.name}}</td>
+      </tr>
+    </table>
   </div>
 </div>

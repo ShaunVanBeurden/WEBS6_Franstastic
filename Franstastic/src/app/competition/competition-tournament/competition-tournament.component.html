@@ -1,7 +1,9 @@
 <app-menu></app-menu>
 
 <div class="main">
-  <button (click)="generateTournament()">Genereer toernooi</button>
+  <div>
+    <button (click)="generateTournament()">Genereer toernooi</button>
+  </div>
 
   <div class="rounds" *ngFor="let round of rounds">
     <h2>{{round.name}}</h2>

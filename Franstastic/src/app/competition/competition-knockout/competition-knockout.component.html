@@ -1,7 +1,18 @@
 <app-menu></app-menu>
 
 <div class="main">
-  <p>
-    competition-knockout works!
-  </p>
+  <div>
+    <button (click)="generateKnockout()">Genereer knockout-competitie</button>
+  </div>
+
+  <!--<div class="rounds" *ngFor="let round of rounds">
+    <h2>{{round.name}}</h2>
+    <table>
+      <tr *ngFor="let match of round.matches">
+        <td>{{ match.player1.name}}</td>
+        <td>vs</td>
+        <td>{{ match.player2.name}}</td>
+      </tr>
+    </table>
+  </div>-->
 </div>

@@ -35,12 +35,12 @@ export class CompetitionService {
     itemsRef.update(this.key, { participants: participantList });
   }
 
-  addRounds(roundList) {
+  saveRounds(roundList) {
     const itemsRef = this.db.list('/competition/');
     itemsRef.update(this.key, { rounds: roundList });
   }
 
-  addPouleComp(poules) {
+  savePoules(poules) {
     const itemsRef = this.db.list('/competition/');
     itemsRef.update(this.key, { poules: poules });
   }

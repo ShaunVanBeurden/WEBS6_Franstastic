@@ -24,6 +24,12 @@ export class CompetitionPouleComponent implements OnDestroy {
       if (competition.participants) {
         this.participants = competition.participants;
       }
+      // Checkt of er al poules bestaan en zoja dan laten we die zien
+      if (competition.poules != null) {
+        this.pouleAmount = competition.poules.length;
+        this.addPoules();
+        this.generateTournament();
+      }
     });
     this.participantOnDrop();
   }
@@ -63,7 +69,7 @@ export class CompetitionPouleComponent implements OnDestroy {
 
     if (isNaN(this.pouleAmount)) {
       alert("Je mag alleen cijfers invoeren!")
-    } else if (this.pouleAmount * 2 > this.participants.length) {
+    } else if (this.participants === undefined || this.pouleAmount * 2 > this.participants.length) {
       alert('Er moeten minimaal 2 spelers per poule zijn!');
     } else {
       let j = 0;
@@ -71,7 +77,7 @@ export class CompetitionPouleComponent implements OnDestroy {
       let playerCount = playersPerPoule;
 
       for (let i = 0; i < this.pouleAmount; i++) {
-        const players = []
+        const players = [];
         let poule = i + 1;
 
         for (j; j < playerCount; j++) {
@@ -80,8 +86,8 @@ export class CompetitionPouleComponent implements OnDestroy {
         playerCount = playerCount + playersPerPoule;
         this.poules.push({name: 'poule ' + poule, players: players});
       }
+      this.showGenerate = true;
     }
-    this.showGenerate = true;
   }
 
   generateTournament() {
@@ -96,6 +102,7 @@ export class CompetitionPouleComponent implements OnDestroy {
     for (let i = 0; i < this.pouleAmount; i++) {
       let pouleNumber = i + 1;
       let poulePlayers = this.poules[i].players;
+
       // We gebruiken de round robin methode om de wedstrijden in te delen
       this.pouleMatches.push(robin(poulePlayers.length, poulePlayers));
 
@@ -109,6 +116,6 @@ export class CompetitionPouleComponent implements OnDestroy {
       }
       this.pouleCompetition.push({name: 'poule ' + pouleNumber, matches: matches});
     }
-    this.competitionService.addPouleComp(this.pouleCompetition);
+    this.competitionService.savePoules(this.pouleCompetition);
   }
 }

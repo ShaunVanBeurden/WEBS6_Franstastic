@@ -37,6 +37,6 @@ export class CompetitionTournamentComponent {
       this.rounds.push({name: 'Round ' + roundNumber, matches: matches});
     }
 
-    this.competitionService.addRounds(this.rounds);
+    this.competitionService.saveRounds(this.rounds);
   }
 }

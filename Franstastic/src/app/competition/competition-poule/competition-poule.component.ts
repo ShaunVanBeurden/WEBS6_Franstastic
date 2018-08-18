@@ -28,7 +28,7 @@ export class CompetitionPouleComponent implements OnDestroy {
       if (competition.poules != null) {
         this.pouleAmount = competition.poules.length;
         this.addPoules();
-        this.generateTournament();
+        //this.generateTournament();
       }
     });
     this.participantOnDrop();

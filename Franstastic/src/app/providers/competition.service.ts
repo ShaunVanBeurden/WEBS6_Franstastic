@@ -23,13 +23,20 @@ export class CompetitionService {
   // Het toevoegen van een deelnemer aan de competitie
   addParticipant(participantName, competition) {
     const participantList = [];
+    let existingParticipant = false;
 
-    participantList.push({name: participantName});
     if (competition.participants) {
       for (let i = 0; i < competition.participants.length; i++) {
+        if (competition.participants[i].name == participantName) {
+          existingParticipant = true;
+        }
         participantList.push(competition.participants[i])
       }
     }
+    if (!existingParticipant) {
+      participantList.push({name: participantName});
+    }
+
 
     const itemsRef = this.db.list('/competition/');
     itemsRef.update(this.key, { participants: participantList });

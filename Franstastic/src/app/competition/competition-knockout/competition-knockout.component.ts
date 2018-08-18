@@ -22,22 +22,19 @@ export class CompetitionKnockoutComponent {
   }
 
   generateKnockout() {
-/*    // We gebruiken de round robin methode om de wedstrijden in te delen
-    this.roundList.push(robin(this.participants.length, this.participants));
-
-    // We loopen door de lijst met rondes en stoppen hem in een nieuwe array
-    for (let i = 0; i < this.roundList[0].length; i++) {*/
+    // Checkt voor een oneven aantal deelnemers
+    if (this.isOdd(this.participants.length)) {
+      alert("Je kan de competitie niet starten met een oneven aantal deelnemers!")
+    } else {
       const matches = [];
-      this.matchList.push(robin(this.participants.length, this.participants));
-      let halfSize = Math.floor(this.participants.length / 2);
-      for (let i = 0; i < halfSize; i++) {
-        matches.push({player1: this.matchList[0][i][0], player2: this.matchList[0][i][1]});
+      for (let i = 0; i < this.participants.length; i = i + 2) {
+        matches.push({player1: this.participants[i], player2: this.participants[i + 1]});
       }
-      //this.rounds.push({name: 'Round ' + roundNumber, matches: matches});
-    //}
+      this.rounds.push({matches: matches, name: 'Round 1'});
+    }
+  }
 
-    console.log(this.participants);
-
-    //this.competitionService.addRounds(this.rounds);
+  isOdd(participantAmount) {
+    return Math.abs(participantAmount % 2) == 1;
   }
 }

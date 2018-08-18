@@ -11,9 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { CompetitionOverviewComponent } from './competition/competition-overview/competition-overview.component';
 import { LoginService } from "./providers/login.service";
 import { environment } from "../environments/environment";
-import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from "@angular/forms";
-import {CompetitionService} from "./providers/competition.service";
+import { CompetitionService } from "./providers/competition.service";
 import { CompetitionDetailsComponent } from './competition/competition-details/competition-details.component';
 import { CompetitionParticipantsComponent } from './competition/competition-participants/competition-participants.component';
 import { DragulaModule } from 'ng2-dragula';
@@ -21,6 +20,7 @@ import { CompetitionPouleComponent } from './competition/competition-poule/compe
 import { CompetitionTournamentComponent } from './competition/competition-tournament/competition-tournament.component';
 import { CompetitionKnockoutComponent } from './competition/competition-knockout/competition-knockout.component';
 import { CompetitionMatchesComponent } from './competition/competition-matches/competition-matches.component';
+import {CompetitionModule} from "./competition/competition.module";
 
 
 @NgModule({
@@ -28,7 +28,6 @@ import { CompetitionMatchesComponent } from './competition/competition-matches/c
     AppComponent,
     LoginComponent,
     CompetitionOverviewComponent,
-    MenuComponent,
     CompetitionDetailsComponent,
     CompetitionParticipantsComponent,
     CompetitionPouleComponent,
@@ -40,6 +39,7 @@ import { CompetitionMatchesComponent } from './competition/competition-matches/c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CompetitionModule,
     DragulaModule.forRoot(),
     //Initialize Firebase module
     AngularFireModule.initializeApp(environment.firebase),

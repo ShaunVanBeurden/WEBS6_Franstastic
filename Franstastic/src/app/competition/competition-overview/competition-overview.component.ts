@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 @Component({
   selector: 'app-competition-overview',
   templateUrl: './competition-overview.component.html',
-  styleUrls: ['./competition-overview.component.scss']
+  styleUrls: ['./competition-overview.component.scss'],
 })
 export class CompetitionOverviewComponent  {
 

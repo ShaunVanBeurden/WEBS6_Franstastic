@@ -38,7 +38,6 @@ export class CompetitionPouleComponent implements OnDestroy {
         let sourcePoule = source.parentElement.getElementsByTagName("h2")[0].innerText;
         let targetPoule = target.parentElement.getElementsByTagName("h2")[0].innerText;
         let targetPlayer = el.getElementsByTagName("div")[0].innerText;
-        console.log("test");
 
         // We loopen door de poules
         for (let i = 0; i < this.pouleAmount; i++) {

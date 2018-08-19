@@ -26,7 +26,6 @@ import {CompetitionModule} from "./competition/competition.module";
     CompetitionModule,
     AppRoutingModule,
     FormsModule,
-    DragulaModule.forRoot(),
     //Initialize Firebase module
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,

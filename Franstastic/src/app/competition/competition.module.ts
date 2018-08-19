@@ -12,12 +12,14 @@ import {CompetitionMatchesComponent} from "./competition-matches/competition-mat
 import {CompetitionParticipantsComponent} from "./competition-participants/competition-participants.component";
 import {CompetitionOverviewComponent} from "./competition-overview/competition-overview.component";
 import {CompetitionPouleComponent} from "./competition-poule/competition-poule.component";
+import {DragulaModule} from "ng2-dragula";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    DragulaModule.forRoot(),
   ],
   declarations: [
     MenuComponent,

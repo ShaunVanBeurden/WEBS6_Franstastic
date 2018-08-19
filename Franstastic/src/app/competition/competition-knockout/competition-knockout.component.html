@@ -8,11 +8,13 @@
   <div class="rounds" *ngFor="let round of rounds">
     <h2>{{round.name}}</h2>
     <table>
-      <tr class="matches" *ngFor="let match of round.matches">
+      <tr class="matches" *ngFor="let match of round.matches"><th>
+      <tr>
         <td>{{ match.player1.name}}</td>
         <td>vs</td>
         <td>{{ match.player2.name}}</td>
       </tr>
+      </th></tr>
     </table>
   </div>
 </div>

@@ -8,6 +8,7 @@ import {CompetitionPouleComponent} from "./competition/competition-poule/competi
 import {CompetitionTournamentComponent} from "./competition/competition-tournament/competition-tournament.component";
 import {CompetitionKnockoutComponent} from "./competition/competition-knockout/competition-knockout.component";
 import {CompetitionMatchesComponent} from "./competition/competition-matches/competition-matches.component";
+import {CompetitionSpectateComponent} from "./competition/competition-spectate/competition-spectate.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,13 +20,14 @@ const routes: Routes = [
       { path: 'pouleoverview', component: CompetitionPouleComponent },
       { path: 'tournamentoverview', component: CompetitionTournamentComponent },
       { path: 'knockoutoverview', component: CompetitionKnockoutComponent },
-      { path: 'matches', component: CompetitionMatchesComponent }
+      { path: 'matches', component: CompetitionMatchesComponent },
+      { path: 'spectate', component: CompetitionSpectateComponent }
     ]
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

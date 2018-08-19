@@ -11,7 +11,7 @@ export class CompetitionParticipantsComponent {
 
   public participants = [];
   public participantName: string;
-  private competition;
+  public competition;
 
   constructor(private competitionService : CompetitionService) {
     competitionService.getCompetition(competitionService.key).valueChanges().subscribe(competition => {

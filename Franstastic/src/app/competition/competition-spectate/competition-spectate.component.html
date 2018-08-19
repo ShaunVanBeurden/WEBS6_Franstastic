@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+
+<div class="main">
+  <div class="rounds" *ngFor="let poule of poules">
+    <div class="wrapper">
+      <h2>{{poule.name}}</h2>
+      <table>
+        <tr>
+          <th>Speler 1</th>
+          <th>vs</th>
+          <th>Speler 2</th>
+          <th>Speeldatum & tijd</th>
+        </tr>
+        <tr *ngFor="let match of poule.matches">
+          <td>{{ match.player1.name}}</td>
+          <td>vs</td>
+          <td>{{ match.player2.name}}</td>
+          <td>{{ match.dateTime }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

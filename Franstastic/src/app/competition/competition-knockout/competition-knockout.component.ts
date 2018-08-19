@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {CompetitionService} from "../../providers/competition.service";
-import * as robin from "roundrobin";
 
 @Component({
   selector: 'app-competition-knockout',
@@ -11,7 +10,6 @@ export class CompetitionKnockoutComponent {
 
   public participants: any[];
   public rounds = [];
-  public matchList = [];
 
   constructor(private competitionService : CompetitionService) {
     competitionService.getCompetition(competitionService.key).valueChanges().subscribe(competition => {
@@ -32,6 +30,7 @@ export class CompetitionKnockoutComponent {
       }
       this.rounds.push({matches: matches, name: 'Round 1'});
     }
+    this.competitionService.saveRounds(this.rounds);
   }
 
   isOdd(participantAmount) {

@@ -1,6 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
+import {LoginService} from "../providers/login.service";
+import {AngularFireAuth} from "angularfire2/auth";
+import {environment} from "../../environments/environment";
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireModule} from "angularfire2";
+import {AppRoutingModule} from "../app-routing.module";
+import {LoginComponent} from "../login/login.component";
+import {CompetitionModule} from "../competition/competition.module";
+import {APP_BASE_HREF} from "@angular/common";
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -8,7 +17,20 @@ describe('MenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuComponent ]
+      imports: [
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AppRoutingModule,
+        CompetitionModule
+      ],
+      declarations: [
+        LoginComponent,
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue : '/' },
+        LoginService,
+        AngularFireAuth
+      ]
     })
     .compileComponents();
   }));

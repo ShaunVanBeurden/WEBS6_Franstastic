@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompetitionTournamentComponent } from './competition-tournament.component';
+import { CompetitionSpectateComponent } from './competition-spectate.component';
 import {RouterModule} from "@angular/router";
 import {CompetitionService} from "../../providers/competition.service";
 import {AngularFireAuth} from "angularfire2/auth";
@@ -12,9 +12,9 @@ import {CompetitionModule} from "../competition.module";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
 
-describe('CompetitionTournamentComponent', () => {
-  let component: CompetitionTournamentComponent;
-  let fixture: ComponentFixture<CompetitionTournamentComponent>;
+describe('CompetitionSpectateComponent', () => {
+  let component: CompetitionSpectateComponent;
+  let fixture: ComponentFixture<CompetitionSpectateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -39,7 +39,7 @@ describe('CompetitionTournamentComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompetitionTournamentComponent);
+    fixture = TestBed.createComponent(CompetitionSpectateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

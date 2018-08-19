@@ -22,7 +22,6 @@ export class LoginService {
   checkAuthState() {
     this.afAuth.authState.subscribe(res => {
       if (res && res.uid) {
-        console.log("chosen");
         this.router.navigate(['competitions']);
       }
     });
@@ -31,11 +30,5 @@ export class LoginService {
   logout() {
     this.afAuth.auth.signOut();
     this.router.navigate(['login']);
-  }
-
-  getCurrentUser() {
-    this.afAuth.authState.subscribe(users => {
-      console.log(users);
-    });
   }
 }

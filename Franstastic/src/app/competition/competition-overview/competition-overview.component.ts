@@ -21,6 +21,7 @@ export class CompetitionOverviewComponent  {
         actions.map(a => ({ key: a.key, ...a.payload.val() }))
       )
     ).subscribe(competitions => {
+        this.competitions = [],
         competitions.map(competitions => this.competitions.push(competitions)
       );
     });

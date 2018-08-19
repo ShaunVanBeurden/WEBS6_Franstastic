@@ -11,7 +11,7 @@ export class CompetitionKnockoutComponent {
   public participants: any[];
   public rounds = [];
 
-  constructor(private competitionService : CompetitionService) {
+  constructor(public competitionService : CompetitionService) {
     competitionService.getCompetition(competitionService.key).valueChanges().subscribe(competition => {
       if (competition.participants) {
         this.participants = competition.participants;

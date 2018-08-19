@@ -47,4 +47,33 @@ describe('CompetitionSpectateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check competitiontype', () => {
+    component.competitionService.getCompetition('-LKCDT-9WA75bSaciEqz').valueChanges().subscribe(competition => {
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({poule: true});
+      competition.poules = null;
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({poule: false});
+    });
+
+    component.competitionService.getCompetition('-LKC9MM-wc2xAY71hDk7').valueChanges().subscribe(competition => {
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({toernooi: true});
+      competition.rounds = null;
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({toernooi: false});
+    });
+
+    component.competitionService.getCompetition('-LKIEoWYDF60svVX2eVY').valueChanges().subscribe(competition => {
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({ko: true});
+      competition.rounds = null;
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({ko: false});
+      competition.type = null;
+      component.checkCompetitionType(competition);
+      expect(competition.competitionTypes).toContain({toernooi: false, ko: false, poule: false});
+    });
+  });
 });

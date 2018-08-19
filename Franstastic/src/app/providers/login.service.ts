@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import { Router } from "@angular/router";
 import {Observable} from "rxjs/Observable";
 
+
 @Injectable()
 export class LoginService {
 
@@ -28,7 +29,8 @@ export class LoginService {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut().then(() => {
+    });
     this.router.navigate(['login']);
   }
 }

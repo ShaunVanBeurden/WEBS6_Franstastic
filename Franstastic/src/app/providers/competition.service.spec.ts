@@ -59,7 +59,7 @@ describe('Service: CompetitionService', () => {
     });
   });
 
-  /*it('should add a participant to our competition', (done: DoneFn) => {
+  it('should add a participant to our competition', () => {
     let participants = [];
     this.service.getCompetition('-LKCDT-9WA75bSaciEqz').valueChanges().subscribe(competition => {
       this.participants = competition.participants;
@@ -68,9 +68,8 @@ describe('Service: CompetitionService', () => {
 
     this.service.getCompetition('-LKCDT-9WA75bSaciEqz').valueChanges().subscribe(competition => {
       expect(this.participants).toContain(competition.participants.name("Kat"));
-      done();
     });
-  });*/
+  });
 
   it('should return a list of all competitions', (done: DoneFn) => {
     this.service.getCompetitionsList().valueChanges().subscribe(competitions => {

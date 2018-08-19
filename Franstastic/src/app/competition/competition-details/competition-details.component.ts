@@ -12,20 +12,24 @@ export class CompetitionDetailsComponent {
   public competitionName: string;
   public competitionTypes: any = ({toernooi: false, ko: false, poule: false});
 
-  constructor(private route: ActivatedRoute, private competitionService: CompetitionService) {
+  constructor(private route: ActivatedRoute, public competitionService: CompetitionService) {
     // Het ophalen van de parameters uit de actieve route
     this.route.params.subscribe(params => {
       competitionService.getCompetition(params.id).valueChanges().subscribe(competition => {
-        this.competitionName = competition.name;
-        if (competition.type == "Toernooi") {
-          this.competitionTypes.toernooi = true;
-        } else if (competition.type == "Knockout-Systeem") {
-          this.competitionTypes.ko = true;
-        } else if (competition.type == "Poule-Systeem") {
-          this.competitionTypes.poule = true;
-        }
+        this.checkCompetitionType(competition);
         competitionService.key = params.id;
       });
     });
+  }
+
+  checkCompetitionType(competition) {
+    this.competitionName = competition.name;
+    if (competition.type == "Toernooi") {
+      this.competitionTypes.toernooi = true;
+    } else if (competition.type == "Knockout-Systeem") {
+      this.competitionTypes.ko = true;
+    } else if (competition.type == "Poule-Systeem") {
+      this.competitionTypes.poule = true;
+    }
   }
 }

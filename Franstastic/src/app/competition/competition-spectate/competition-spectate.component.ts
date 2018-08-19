@@ -9,26 +9,31 @@ import {CompetitionService} from "../../providers/competition.service";
 export class CompetitionSpectateComponent {
 
   public poules: any[];
-  public matchDateTime: Date;
+  public rounds: any[];
+  public competitionTypes: any = ({toernooi: false, ko: false, poule: false});
 
-  constructor(private competitionService : CompetitionService) {
+  constructor(public competitionService : CompetitionService) {
     competitionService.getCompetition(competitionService.key).valueChanges().subscribe(competition => {
-      if (competition.poules) {
-        this.poules = competition.poules;
-      }
+      this.checkCompetitionType(competition);
     });
   }
 
-  saveMatchDate(poule, match) {
-    for (let i = 0; i < this.poules.length; i++) {
-      if (this.poules[i] == poule) {
-        for (let j = 0; j < this.poules[i].matches.length; j++) {
-          if (this.poules[i].matches[j] == match) {
-            this.poules[i].matches[j].dateTime = this.matchDateTime;
-          }
-        }
+  checkCompetitionType(competition) {
+    if (competition.type == "Toernooi") {
+      this.competitionTypes.toernooi = true;
+      if (competition.rounds) {
+        this.rounds = competition.rounds;
+      }
+    } else if (competition.type == "Knockout-Systeem") {
+      this.competitionTypes.ko = true;
+      if (competition.rounds) {
+        this.rounds = competition.rounds;
+      }
+    } else if (competition.type == "Poule-Systeem") {
+      this.competitionTypes.poule = true;
+      if (competition.poules) {
+        this.poules = competition.poules;
       }
     }
-    this.competitionService.savePoules(this.poules);
   }
 }

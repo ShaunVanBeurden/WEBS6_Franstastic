@@ -6,9 +6,11 @@
   <table>
     <tr>
       <th>Deelnemers</th>
+      <th>Verwijderen</th>
     </tr>
     <tr *ngFor="let participant of participants">
       <td>{{participant.name}}</td>
+      <td><button (click)="deleteParticipant(participant)">x</button></td>
     </tr>
   </table>
 </div>

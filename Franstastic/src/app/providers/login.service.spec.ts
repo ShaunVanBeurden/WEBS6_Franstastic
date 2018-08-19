@@ -38,8 +38,22 @@ describe('LoginService', () => {
   }));
 
   it('should be logged in', (done: DoneFn) => {
+    let router = {
+      navigate: jasmine.createSpy('navigate')
+    }
+
+    this.service.checkAuthState();
+    expect(router.navigate).toHaveBeenCalledWith(['competitions']);
+    done();
+  });
+
+  it('should be logged out', (done: DoneFn) => {
+    let router = {
+      navigate: jasmine.createSpy('navigate')
+    }
+
     this.service.logout();
-    expect(this.service.checkAuthState).toBe('KO');
+    expect(router.navigate).toHaveBeenCalledWith(['login']);
     done();
   });
 });

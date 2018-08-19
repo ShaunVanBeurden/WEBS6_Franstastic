@@ -1,25 +1,73 @@
 <app-menu></app-menu>
 
 <div class="main">
-  <div class="rounds" *ngFor="let poule of poules">
-    <div class="wrapper">
-      <h2>{{poule.name}}</h2>
-      <table>
-        <tr>
-          <th>Speler 1</th>
-          <th>vs</th>
-          <th>Speler 2</th>
-          <th>Speeldatum & tijd</th>
-          <th>opslaan</th>
-        </tr>
-        <tr *ngFor="let match of poule.matches">
-          <td>{{ match.player1.name}}</td>
-          <td>vs</td>
-          <td>{{ match.player2.name}}</td>
-          <td><input [(ngModel)]="matchDateTime" type="datetime-local"></td>
-          <td><button (click)="saveMatchDate(poule, match)">opslaan</button></td>
-        </tr>
-      </table>
+  <div *ngIf="competitionTypes.poule">
+    <div *ngFor="let poule of poules">
+      <div class="wrapper">
+        <h2>{{poule.name}}</h2>
+        <table>
+          <tr>
+            <th>Speler 1</th>
+            <th>vs</th>
+            <th>Speler 2</th>
+            <th>Speeldatum & tijd</th>
+            <th>opslaan</th>
+          </tr>
+          <tr *ngFor="let match of poule.matches">
+            <td>{{ match.player1.name}}</td>
+            <td>vs</td>
+            <td>{{ match.player2.name}}</td>
+            <td><input [(ngModel)]="matchDateTime" type="datetime-local"></td>
+            <td><button (click)="saveMatchDatePoule(poule, match)">opslaan</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="competitionTypes.toernooi">
+    <div *ngFor="let round of rounds">
+      <div class="wrapper">
+        <h2>{{round.name}}</h2>
+        <table>
+          <tr>
+            <th>Speler 1</th>
+            <th>vs</th>
+            <th>Speler 2</th>
+            <th>Speeldatum & tijd</th>
+            <th>opslaan</th>
+          </tr>
+          <tr *ngFor="let match of round.matches">
+            <td>{{ match.player1.name}}</td>
+            <td>vs</td>
+            <td>{{ match.player2.name}}</td>
+            <td><input [(ngModel)]="matchDateTime" type="datetime-local"></td>
+            <td><button (click)="saveMatchDateRound(round, match)">opslaan</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="competitionTypes.ko">
+    <div *ngFor="let round of rounds">
+      <div class="wrapper">
+        <h2>{{round.name}}</h2>
+        <table>
+          <tr>
+            <th>Speler 1</th>
+            <th>vs</th>
+            <th>Speler 2</th>
+            <th>Speeldatum & tijd</th>
+            <th>opslaan</th>
+          </tr>
+          <tr *ngFor="let match of round.matches">
+            <td>{{ match.player1.name}}</td>
+            <td>vs</td>
+            <td>{{ match.player2.name}}</td>
+            <td><input [(ngModel)]="matchDateTime" type="datetime-local"></td>
+            <td><button (click)="saveMatchDateRound(round, match)">opslaan</button></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>

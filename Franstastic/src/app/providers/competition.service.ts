@@ -42,6 +42,11 @@ export class CompetitionService {
     itemsRef.update(this.key, { participants: participantList });
   }
 
+  deleteParticipant(participantList) {
+    const itemsRef = this.db.list('/competition/');
+    itemsRef.update(this.key, { participants: participantList });
+  }
+
   saveRounds(roundList) {
     const itemsRef = this.db.list('/competition/');
     itemsRef.update(this.key, { rounds: roundList });

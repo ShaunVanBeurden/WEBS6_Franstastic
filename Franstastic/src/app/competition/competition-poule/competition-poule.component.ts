@@ -24,12 +24,6 @@ export class CompetitionPouleComponent implements OnDestroy {
       if (competition.participants) {
         this.participants = competition.participants;
       }
-      // Checkt of er al poules bestaan en zoja dan laten we die zien
-      if (competition.poules != null) {
-        this.pouleAmount = competition.poules.length;
-        this.addPoules();
-        //this.generateTournament();
-      }
     });
     this.participantOnDrop();
   }
@@ -44,6 +38,7 @@ export class CompetitionPouleComponent implements OnDestroy {
         let sourcePoule = source.parentElement.getElementsByTagName("h2")[0].innerText;
         let targetPoule = target.parentElement.getElementsByTagName("h2")[0].innerText;
         let targetPlayer = el.getElementsByTagName("div")[0].innerText;
+        console.log("test");
 
         // We loopen door de poules
         for (let i = 0; i < this.pouleAmount; i++) {

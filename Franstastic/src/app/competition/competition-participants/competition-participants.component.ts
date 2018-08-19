@@ -25,4 +25,12 @@ export class CompetitionParticipantsComponent {
   addParticipant() {
     this.competitionService.addParticipant(this.participantName, this.competition);
   }
+
+  deleteParticipant(participant) {
+    var index = this.participants.indexOf(participant, 0);
+    if (index > -1) {
+      this.participants.splice(index, 1);
+    }
+    this.competitionService.deleteParticipant(this.participants);
+  }
 }

@@ -11,6 +11,8 @@ export class CompetitionMatchesComponent {
   public poules: any[];
   public rounds: any[];
   public matchDateTime: Date;
+  public scorePlayer1: string;
+  public scorePlayer2: string;
   public competitionTypes: any = ({toernooi: false, ko: false, poule: false});
 
   constructor(public competitionService : CompetitionService) {
@@ -44,6 +46,8 @@ export class CompetitionMatchesComponent {
         for (let j = 0; j < this.poules[i].matches.length; j++) {
           if (this.poules[i].matches[j] == match) {
             this.poules[i].matches[j].dateTime = this.matchDateTime;
+            this.poules[i].matches[j].player1.scorePlayer1 = this.scorePlayer1;
+            this.poules[i].matches[j].player2.scorePlayer2 = this.scorePlayer2;
           }
         }
       }
@@ -57,6 +61,8 @@ export class CompetitionMatchesComponent {
         for (let j = 0; j < this.rounds[i].matches.length; j++) {
           if (this.rounds[i].matches[j] == match) {
             this.rounds[i].matches[j].dateTime = this.matchDateTime;
+            this.rounds[i].matches[j].player1.scorePlayer1 = this.scorePlayer1;
+            this.rounds[i].matches[j].player2.scorePlayer2 = this.scorePlayer2;
           }
         }
       }

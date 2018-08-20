@@ -11,12 +11,14 @@
             <th>vs</th>
             <th>Speler 2</th>
             <th>Speeldatum & tijd</th>
+            <th>Score</th>
           </tr>
           <tr *ngFor="let match of poule.matches">
             <td>{{ match.player1.name}}</td>
             <td>vs</td>
             <td>{{ match.player2.name}}</td>
             <td>{{ match.dateTime }}</td>
+            <td>{{ match.score }}</td>
           </tr>
         </table>
       </div>
@@ -32,12 +34,14 @@
             <th>vs</th>
             <th>Speler 2</th>
             <th>Speeldatum & tijd</th>
+            <th>Score</th>
           </tr>
           <tr *ngFor="let match of round.matches">
             <td>{{ match.player1.name}}</td>
             <td>vs</td>
             <td>{{ match.player2.name}}</td>
             <td>{{ match.dateTime }}</td>
+            <td>{{ match.score }}</td>
           </tr>
         </table>
       </div>
@@ -53,12 +57,16 @@
             <th>vs</th>
             <th>Speler 2</th>
             <th>Speeldatum & tijd</th>
+            <th>Speler 1 Score</th>
+            <th>Speler 2 Score</th>
           </tr>
           <tr *ngFor="let match of round.matches">
             <td>{{ match.player1.name}}</td>
             <td>vs</td>
             <td>{{ match.player2.name}}</td>
             <td>{{ match.dateTime }}</td>
+            <td>{{ match.player1.scorePlayer1 }}</td>
+            <td>{{ match.player2.scorePlayer2 }}</td>
           </tr>
         </table>
       </div>
